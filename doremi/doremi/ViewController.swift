@@ -23,9 +23,7 @@ class ViewController: UIViewController {
     @IBAction func doremiAction(_ sender: UIButton) {
         a(tag: sender.tag)
     }
-    
-    
-    
+
     
     
     func a(tag: Int) {
