@@ -142,10 +142,11 @@ extension LoginViewController: UITextFieldDelegate {
         
 //        guard let
         
-        
-        let vc = ViewController()
-        self.show(vc, sender: nil)
-        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let secondVC = storyBoard.instantiateViewController(withIdentifier: "SecondViewController")
+
+        self.show(secondVC, sender: nil)
+
         return true
     }
 }
