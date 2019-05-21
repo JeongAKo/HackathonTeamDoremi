@@ -191,6 +191,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wolf" translatesAutoresizingMaskIntoConstraints="NO" id="Cf2-fL-mnU">
+                                <rect key="frame" x="350" y="111" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -209,6 +213,7 @@
                         <outlet property="exbutton" destination="5sS-FA-NwX" id="ds2-eO-heO"/>
                         <outlet property="imageVeiw" destination="5eF-eB-CKV" id="GsK-cB-603"/>
                         <outlet property="label" destination="BHf-tu-O8I" id="Y2v-q8-4bY"/>
+                        <outlet property="wolfImage" destination="Cf2-fL-mnU" id="Qfa-5U-ght"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brE-Ea-tpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,5 +243,6 @@
         <image name="ballon" width="1024" height="715"/>
         <image name="person" width="130" height="152"/>
         <image name="simple" width="392.5" height="458"/>
+        <image name="wolf" width="640" height="640"/>
     </resources>
 </document>

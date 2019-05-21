@@ -12,6 +12,7 @@ import AVFoundation
 class SecondViewController: UIViewController {
     @IBOutlet weak var imageVeiw: UIImageView!
     @IBOutlet weak var ballonImageView: UIImageView!
+    @IBOutlet var wolfImage: UIImageView!
     
     @IBOutlet weak var label: UILabel!
     
@@ -92,6 +93,7 @@ class SecondViewController: UIViewController {
             button.setImage(UIImage(named: "sheep"), for: .normal)
             button.addTarget(self, action: #selector(act(_:)), for: .touchUpInside)
             imageVeiw.addSubview(button)
+            //이미지 뷰위에서는 선택 안됨. 그래서 밑에 코드 써야 됨..!!!
             imageVeiw.isUserInteractionEnabled = true
             arr.append(button)
         }
@@ -119,16 +121,17 @@ class SecondViewController: UIViewController {
     
     
     
-    
+    //시작 버튼
     @IBAction func ex(_ sender: UIButton) {
         ballonImageView.isHidden = false
         label.isHidden = false
         label.text = ""
         animate()
+        self.ballonImageView.isHidden = true
+        self.label.isHidden = true
         
-        UIView.animate(withDuration: 2, delay: 4, options: [], animations: {
-            self.ballonImageView.isHidden = true
-            self.label.isHidden = true
+        UIView.animate(withDuration: 60, delay: 3, options: [], animations: {
+            self.wolfImage.frame = CGRect(x: 0, y: 111, width: 50, height: 50)
         })
 
         let pointers :[CGPoint] = [CGPoint(x: view.frame.minX + 25,y: 440),CGPoint(x: 335, y: 440),CGPoint(x: 100, y: 530),CGPoint(x: 265, y: 530),CGPoint(x:view.center.x - 40 , y: 610),CGPoint(x: view.frame.minX + 25, y: 700),CGPoint(x: 335, y: 700)].shuffled()
