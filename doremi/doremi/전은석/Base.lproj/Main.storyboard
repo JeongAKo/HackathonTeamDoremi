@@ -192,16 +192,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wolf" translatesAutoresizingMaskIntoConstraints="NO" id="Cf2-fL-mnU">
-                                <rect key="frame" x="350" y="111" width="50" height="50"/>
+                                <rect key="frame" x="360" y="220" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re5-ZZ-rnB">
+                                <rect key="frame" x="294" y="93" width="115" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="VnS-hb-Djc"/>
+                                    <constraint firstAttribute="width" constant="115" id="lxQ-Bg-bIr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5eF-eB-CKV" firstAttribute="top" secondItem="FLg-lh-xkN" secondAttribute="top" id="4vs-mX-zgi"/>
                             <constraint firstItem="FLg-lh-xkN" firstAttribute="trailing" secondItem="5eF-eB-CKV" secondAttribute="trailing" id="BK6-mO-PO8"/>
+                            <constraint firstItem="Re5-ZZ-rnB" firstAttribute="top" secondItem="FLg-lh-xkN" secondAttribute="top" constant="5" id="BV2-1q-mMi"/>
                             <constraint firstItem="5eF-eB-CKV" firstAttribute="leading" secondItem="FLg-lh-xkN" secondAttribute="leading" id="LvX-1c-OuV"/>
                             <constraint firstItem="FLg-lh-xkN" firstAttribute="bottom" secondItem="5eF-eB-CKV" secondAttribute="bottom" id="ZBi-zo-8x5"/>
+                            <constraint firstItem="FLg-lh-xkN" firstAttribute="trailing" secondItem="Re5-ZZ-rnB" secondAttribute="trailing" constant="5" id="goG-qB-WBw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FLg-lh-xkN"/>
                     </view>
@@ -213,6 +225,7 @@
                         <outlet property="exbutton" destination="5sS-FA-NwX" id="ds2-eO-heO"/>
                         <outlet property="imageVeiw" destination="5eF-eB-CKV" id="GsK-cB-603"/>
                         <outlet property="label" destination="BHf-tu-O8I" id="Y2v-q8-4bY"/>
+                        <outlet property="userLabel" destination="Re5-ZZ-rnB" id="1hl-l0-Nqb"/>
                         <outlet property="wolfImage" destination="Cf2-fL-mnU" id="Qfa-5U-ght"/>
                     </connections>
                 </viewController>
@@ -242,7 +255,7 @@
     <resources>
         <image name="ballon" width="1024" height="715"/>
         <image name="person" width="130" height="152"/>
-        <image name="simple" width="392.5" height="458"/>
-        <image name="wolf" width="640" height="640"/>
+        <image name="simple" width="785" height="916"/>
+        <image name="wolf" width="238" height="189"/>
     </resources>
 </document>

@@ -18,6 +18,7 @@
 		1F1F7F7B2293EB2500F2D0A2 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7A2293EB2500F2D0A2 /* CustomView.swift */; };
 		1F1F7F7D229422BF00F2D0A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */; };
 		1F1F7F7F229422CA00F2D0A2 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7E229422CA00F2D0A2 /* userData.swift */; };
+		1FABF1B82294DFCD009204BA /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF1B72294DFCD009204BA /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1F1F7F7A2293EB2500F2D0A2 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1F1F7F7E229422CA00F2D0A2 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		1FABF1B72294DFCD009204BA /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				1F09C8562292B64000DB4D0C /* ViewController.swift */,
 				1F09C86C2292D05C00DB4D0C /* SecondViewController.swift */,
+				1FABF1B72294DFCD009204BA /* ThirdViewController.swift */,
 				1F09C86A2292CBA200DB4D0C /* SingleTon.swift */,
 				1F1F7F7A2293EB2500F2D0A2 /* CustomView.swift */,
 				1F09C8582292B64000DB4D0C /* Main.storyboard */,
@@ -178,6 +181,7 @@
 				1F1F7F7F229422CA00F2D0A2 /* userData.swift in Sources */,
 				1F09C8572292B64000DB4D0C /* ViewController.swift in Sources */,
 				1F09C86B2292CBA200DB4D0C /* SingleTon.swift in Sources */,
+				1FABF1B82294DFCD009204BA /* ThirdViewController.swift in Sources */,
 				1F09C8552292B64000DB4D0C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

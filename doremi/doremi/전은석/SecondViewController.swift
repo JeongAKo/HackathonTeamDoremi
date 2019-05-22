@@ -17,6 +17,9 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var exbutton: UIButton!
+    
+    @IBOutlet weak var userLabel: UILabel!
+    
     var arr :[UIButton] = []
     var saveNum: [Int] = []
     override func viewDidLoad() {
@@ -125,13 +128,15 @@ class SecondViewController: UIViewController {
     @IBAction func ex(_ sender: UIButton) {
         ballonImageView.isHidden = false
         label.isHidden = false
+        self.wolfImage.frame = CGRect(x: view.frame.minX + 350, y: 220, width: 50, height: 50)
+
         label.text = ""
         animate()
         self.ballonImageView.isHidden = true
         self.label.isHidden = true
         
         UIView.animate(withDuration: 60, delay: 3, options: [], animations: {
-            self.wolfImage.frame = CGRect(x: 0, y: 111, width: 50, height: 50)
+            self.wolfImage.frame = CGRect(x: 0, y: 220, width: 50, height: 50)
         })
 
         let pointers :[CGPoint] = [CGPoint(x: view.frame.minX + 25,y: 440),CGPoint(x: 335, y: 440),CGPoint(x: 100, y: 530),CGPoint(x: 265, y: 530),CGPoint(x:view.center.x - 40 , y: 610),CGPoint(x: view.frame.minX + 25, y: 700),CGPoint(x: 335, y: 700)].shuffled()
