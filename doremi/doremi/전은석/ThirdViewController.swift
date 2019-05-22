@@ -18,6 +18,7 @@ class ThirdViewController: UIViewController {
     let wolfImageView = UIImageView()
     let startButton = UIButton()
     let kingButton = UIButton()
+    let userNameLabel = UILabel()
     
     
     var buttonArray :[UIButton] = []
@@ -54,7 +55,7 @@ class ThirdViewController: UIViewController {
         backgroundImageView.isUserInteractionEnabled = true
         
         
-        let arr = [personButton,balloonImageView,wolfImageView,startButton]
+        let arr = [personButton,balloonImageView,wolfImageView,startButton,userNameLabel]
         for x in arr {
             backgroundImageView.addSubview(x)
             x.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +108,12 @@ class ThirdViewController: UIViewController {
         startButton.layer.cornerRadius = 30
         startButton.addTarget(self, action: #selector(startInfo), for: .touchUpInside)
         startButton.setImage(UIImage(named: "sun1"), for: .normal)
+        
+        userNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        userNameLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
+        userNameLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        userNameLabel.text = "유저네임 들어갈곳"
+
         
         backgroundImageView.addSubview(kingButton)
         kingButton.frame = CGRect(x: view.frame.maxX - 40, y: backgroundImageView.frame.minY + 10, width: 20, height: 20)
