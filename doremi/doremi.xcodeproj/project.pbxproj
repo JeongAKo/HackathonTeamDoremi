@@ -17,8 +17,10 @@
 		1F09C86D2292D05C00DB4D0C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F09C86C2292D05C00DB4D0C /* SecondViewController.swift */; };
 		1F1F7F7B2293EB2500F2D0A2 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7A2293EB2500F2D0A2 /* CustomView.swift */; };
 		1F1F7F7D229422BF00F2D0A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */; };
-		1F1F7F7F229422CA00F2D0A2 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F7F7E229422CA00F2D0A2 /* userData.swift */; };
 		1FABF1B82294DFCD009204BA /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF1B72294DFCD009204BA /* ThirdViewController.swift */; };
+		AB0AA4DB22955C0B0053311B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AA4DA22955C0B0053311B /* RankingViewController.swift */; };
+		AB0AA4DD22955C570053311B /* CustonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AA4DC22955C570053311B /* CustonCell.swift */; };
+		AB0AA4DF22955CBE0053311B /* SingleSigle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AA4DE22955CBE0053311B /* SingleSigle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		1F09C86C2292D05C00DB4D0C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1F1F7F7A2293EB2500F2D0A2 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1F1F7F7E229422CA00F2D0A2 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		1FABF1B72294DFCD009204BA /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		AB0AA4DA22955C0B0053311B /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		AB0AA4DC22955C570053311B /* CustonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonCell.swift; sourceTree = "<group>"; };
+		AB0AA4DE22955CBE0053311B /* SingleSigle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSigle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +99,11 @@
 		1F1F7F812294232500F2D0A2 /* 고정아 */ = {
 			isa = PBXGroup;
 			children = (
-				1F1F7F7E229422CA00F2D0A2 /* userData.swift */,
-				1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */,
 				1F09C8542292B64000DB4D0C /* AppDelegate.swift */,
+				1F1F7F7C229422BF00F2D0A2 /* LoginViewController.swift */,
+				AB0AA4DA22955C0B0053311B /* RankingViewController.swift */,
+				AB0AA4DC22955C570053311B /* CustonCell.swift */,
+				AB0AA4DE22955CBE0053311B /* SingleSigle.swift */,
 			);
 			name = "고정아";
 			path = "고정아";
@@ -178,11 +184,13 @@
 				1F1F7F7D229422BF00F2D0A2 /* LoginViewController.swift in Sources */,
 				1F1F7F7B2293EB2500F2D0A2 /* CustomView.swift in Sources */,
 				1F09C86D2292D05C00DB4D0C /* SecondViewController.swift in Sources */,
-				1F1F7F7F229422CA00F2D0A2 /* userData.swift in Sources */,
 				1F09C8572292B64000DB4D0C /* ViewController.swift in Sources */,
+				AB0AA4DD22955C570053311B /* CustonCell.swift in Sources */,
 				1F09C86B2292CBA200DB4D0C /* SingleTon.swift in Sources */,
+				AB0AA4DF22955CBE0053311B /* SingleSigle.swift in Sources */,
 				1FABF1B82294DFCD009204BA /* ThirdViewController.swift in Sources */,
 				1F09C8552292B64000DB4D0C /* AppDelegate.swift in Sources */,
+				AB0AA4DB22955C0B0053311B /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

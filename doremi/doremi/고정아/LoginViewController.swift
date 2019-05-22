@@ -68,6 +68,13 @@ class LoginViewController: UIViewController {
         return passwdTextField
     }()
     
+    let enterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("GO", for: .normal)
+        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         idTextField.delegate = self
@@ -75,6 +82,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         addsubView()
         autoLayout()
+
     }
     
     func addsubView() {
@@ -83,8 +91,12 @@ class LoginViewController: UIViewController {
         view.addSubview(passwdLogo)
         view.addSubview(idTextField)
         view.addSubview(passwdTextField)
+        view.addSubview(enterButton)
     }
     
+    @objc func didTapButton(_ sender: UIButton) {
+        
+    }
     
     //로그인시 ID 또는 PW 누락시 alert창 띄우기
     func createAlert(title: String, message: String) {
@@ -121,32 +133,33 @@ class LoginViewController: UIViewController {
             passwdTextField.topAnchor.constraint(equalTo: idTextField.bottomAnchor, constant: margin),
             passwdTextField.centerYAnchor.constraint(equalTo: passwdLogo.centerYAnchor),
             passwdTextField.trailingAnchor.constraint(equalTo: guaid.trailingAnchor),
+            
+//            enterButton.topAnchor.constraint(equalTo: passwdTextField.bottomAnchor, constant: margin),
+//            enterButton.centerXAnchor.constraint(equalTo: passwdTextField.centerXAnchor),
+//            enterButton.leadingAnchor.constraint(equalTo: guaid.leadingAnchor, constant: margin),
+//            enterButton.trailingAnchor.constraint(equalTo: guaid.trailingAnchor, constant: -margin),
+//            enterButton.bottomAnchor.constraint(equalTo: guaid.bottomAnchor, constant: margin),
+            
+            
             ])
     }
 }
-
-
-
 
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if idTextField.text!.isEmpty {
-         createAlert(title: "아이디가 누락되었습니다", message: "")
-        } else if passwdTextField.text!.isEmpty {
-            createAlert(title: "비밀번호가 누락되었습니다", message: "")
-        } else {
-            // FIXME: - user이름 넘겨주기
+         createAlert(title: "사용자 이름이 누락되었습니다", message: "")
         }
         
-//        guard let
-        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let secondVC = storyBoard.instantiateViewController(withIdentifier: "SecondViewController")
+        let rankVC = storyBoard.instantiateViewController(withIdentifier: "RankingViewController")
+        
+//        secondVC.userLabel.text = idTextField.text
 
-        self.show(secondVC, sender: nil)
-
+        self.show(rankVC, sender: nil)
+        
         return true
     }
 }
