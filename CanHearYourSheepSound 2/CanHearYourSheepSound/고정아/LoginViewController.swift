@@ -10,27 +10,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    let idTextField: UITextField = {
-        let idTextField = UITextField()
-        let attrString = NSAttributedString(
-            string: "ID",
-            attributes: [.foregroundColor: UIColor.darkText.withAlphaComponent(0.5)]
-        )
-        idTextField.attributedPlaceholder = attrString
-        idTextField.font = UIFont.systemFont(ofSize: 22, weight: .light)
-        idTextField.borderStyle = .none
-        idTextField.autocorrectionType = .no //자동완성 지우기
-        idTextField.autocapitalizationType = .none //첫문자 대문자 안되게 막기
-        idTextField.translatesAutoresizingMaskIntoConstraints = false
-        return idTextField
-    }()
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
-    let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GO", for: .normal)
-        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-        return button
-    }()
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var infoButton: UIButton!
+    
     
     
     //유저 이미지 아이콘들.
@@ -44,16 +29,11 @@ class LoginViewController: UIViewController {
     }()
    
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 view.backgroundColor = .white
-        addsubView()
-        autoLayout()
-        
+        imageView.isUserInteractionEnabled = true
+
 //전은석 추가--------------------
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -65,18 +45,46 @@ view.backgroundColor = .white
 //여기까지---------------------
     }
     
-    @objc func didTapButton(_ sender: UIButton){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageView.isHidden = true
+        imageView.isUserInteractionEnabled = true
+
+    }
+    
+   
+    
+    @IBAction func checkButton(_ sender: Any) {
+         //아이디 넘기기
+        imageView.isHidden = false
         
     }
     
-    func addsubView(){
-        view.addSubview(idTextField)
-        view.addSubview(loginButton)
+    @IBAction func chachaButton(_ sender: UIButton) {
+        infoLabel.text! = "아야!"
+        infoButton.isEnabled = true
     }
     
-    func autoLayout(){
+    @IBAction func infoButton(_ sender: UIButton) {
+        sender.isEnabled = false
+        let str = "게임을 시작하시면 양들이 순서대로 튀어오릅니다. 순서대로 클릭하시면 완료되는 게임입니다. 노래는 '무엇이 무엇이 똑같을까' 입니다."
+        for x in str {
+            infoLabel.text! += "\(x)"
+            RunLoop.current.run(until: Date()+0.05)
+        }
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 //전은석 추가--------------------
@@ -87,20 +95,20 @@ view.backgroundColor = .white
     func firstmake() {
         let arr = [collectionView,leftButton,rightButton]
         for x in arr {
-            view.addSubview(x)
+            imageView.addSubview(x)
             x.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
     func makeView() {
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 100).isActive = true
+        collectionView.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 130).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         collectionView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         
-        leftButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 120).isActive = true
+        leftButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 150).isActive = true
         leftButton.trailingAnchor.constraint(equalTo: collectionView.leadingAnchor,constant: -20).isActive = true
         leftButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -109,7 +117,7 @@ view.backgroundColor = .white
         leftButton.setTitleColor(.black, for: .normal)
         leftButton.tag = 0
         
-        rightButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 120).isActive = true
+        rightButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 150).isActive = true
         rightButton.leadingAnchor.constraint(equalTo: collectionView.trailingAnchor,constant: 20).isActive = true
         rightButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         rightButton.heightAnchor.constraint(equalToConstant: 60).isActive = true

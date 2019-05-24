@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QYh-g1-vdb">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,27 @@
             <objects>
                 <viewController id="QYh-g1-vdb" customClass="LoginViewController" customModule="CanHearYourSheepSound" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJQ-rf-VkA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simple" translatesAutoresizingMaskIntoConstraints="NO" id="EG1-RC-pQ0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="simple" translatesAutoresizingMaskIntoConstraints="NO" id="EG1-RC-pQ0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a9-JK-kzc">
                                 <rect key="frame" x="69" y="353" width="146" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="person"/>
+                                <connections>
+                                    <action selector="chachaButton:" destination="QYh-g1-vdb" eventType="touchUpInside" id="R2r-Xv-VX8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TN-Sv-yRW">
                                 <rect key="frame" x="289" y="302" width="57" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="확인"/>
+                                <state key="normal" image="확인"/>
+                                <connections>
+                                    <action selector="checkButton:" destination="QYh-g1-vdb" eventType="touchUpInside" id="lgV-Fb-usH"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IMa-w5-FnD">
                                 <rect key="frame" x="69" y="315" width="212" height="30"/>
@@ -43,21 +48,53 @@
                                 <rect key="frame" x="259" y="433" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Info" image="info"/>
+                                <connections>
+                                    <action selector="infoButton:" destination="QYh-g1-vdb" eventType="touchUpInside" id="mof-lv-XOJ"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-rn-8bj">
+                                <rect key="frame" x="20" y="578" width="335" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="hos-Zg-6Qv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LoginView" translatesAutoresizingMaskIntoConstraints="NO" id="18p-1a-0pM">
+                                <rect key="frame" x="24" y="130" width="335" height="447"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kqq-H0-Tud" firstAttribute="bottom" secondItem="aCg-rn-8bj" secondAttribute="bottom" id="4Qb-4K-Zsf"/>
+                            <constraint firstItem="kqq-H0-Tud" firstAttribute="trailing" secondItem="aCg-rn-8bj" secondAttribute="trailing" constant="20" id="4fm-j0-sK5"/>
+                            <constraint firstItem="aCg-rn-8bj" firstAttribute="leading" secondItem="kqq-H0-Tud" secondAttribute="leading" constant="20" id="6lB-6K-Nnx"/>
+                            <constraint firstItem="EG1-RC-pQ0" firstAttribute="top" secondItem="bJQ-rf-VkA" secondAttribute="top" id="A3O-Cw-gbr"/>
+                            <constraint firstItem="kqq-H0-Tud" firstAttribute="trailing" secondItem="EG1-RC-pQ0" secondAttribute="trailing" id="EKc-BG-5uQ"/>
+                            <constraint firstItem="kqq-H0-Tud" firstAttribute="bottom" secondItem="EG1-RC-pQ0" secondAttribute="bottom" id="X2b-qx-0br"/>
+                            <constraint firstItem="EG1-RC-pQ0" firstAttribute="leading" secondItem="kqq-H0-Tud" secondAttribute="leading" id="jzG-ta-ge7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kqq-H0-Tud"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="IMa-w5-FnD" id="Agb-xD-3ww"/>
+                        <outlet property="imageView" destination="18p-1a-0pM" id="NGZ-zA-dbr"/>
+                        <outlet property="infoButton" destination="TXS-ZT-bL1" id="LUE-Je-GCe"/>
+                        <outlet property="infoLabel" destination="aCg-rn-8bj" id="YUO-tO-vz8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hb-fh-bPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889.85507246376824" y="83.967391304347828"/>
+            <point key="canvasLocation" x="888.79999999999995" y="83.497536945812811"/>
         </scene>
     </scenes>
     <resources>
+        <image name="LoginView" width="505" height="460"/>
         <image name="info" width="109" height="110"/>
         <image name="person" width="130" height="152"/>
         <image name="simple" width="785" height="916"/>
-        <image name="확인" width="113" height="112"/>
+        <image name="확인" width="113" height="112"/>
     </resources>
 </document>
