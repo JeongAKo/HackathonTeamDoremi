@@ -46,8 +46,7 @@ class RankingViewController: UIViewController {
     
     @objc func didTapCloseButton(_ sender: UIButton){
   
-        
-
+    
         self.show(rankingVC, sender: nil)
     }
     
