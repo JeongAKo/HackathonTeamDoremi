@@ -65,6 +65,22 @@
                                 <rect key="frame" x="24" y="130" width="335" height="447"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oz-f4-b6f">
+                                <rect key="frame" x="130" y="444" width="115" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <state key="normal" title="게임시작!"/>
+                                <connections>
+                                    <action selector="gameStartAction:" destination="QYh-g1-vdb" eventType="touchUpInside" id="0vO-Fv-Jkq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user 아바타 설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyY-Jl-jZv">
+                                <rect key="frame" x="102" y="250" width="170" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,10 +95,13 @@
                         <viewLayoutGuide key="safeArea" id="kqq-H0-Tud"/>
                     </view>
                     <connections>
+                        <outlet property="characterLabel" destination="cyY-Jl-jZv" id="h5b-wc-HDu"/>
+                        <outlet property="gameStartButton" destination="3Oz-f4-b6f" id="Caj-p2-bDW"/>
                         <outlet property="idTextField" destination="IMa-w5-FnD" id="Agb-xD-3ww"/>
                         <outlet property="imageView" destination="18p-1a-0pM" id="NGZ-zA-dbr"/>
                         <outlet property="infoButton" destination="TXS-ZT-bL1" id="LUE-Je-GCe"/>
                         <outlet property="infoLabel" destination="aCg-rn-8bj" id="YUO-tO-vz8"/>
+                        <outlet property="loginButton" destination="7TN-Sv-yRW" id="EQg-H1-sE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hb-fh-bPk" userLabel="First Responder" sceneMemberID="firstResponder"/>

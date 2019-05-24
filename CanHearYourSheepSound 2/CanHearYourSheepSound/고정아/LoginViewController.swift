@@ -15,7 +15,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var characterLabel: UILabel!
+    @IBOutlet weak var gameStartButton: UIButton!
     
     
     //유저 이미지 아이콘들.
@@ -48,16 +51,37 @@ view.backgroundColor = .white
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageView.isHidden = true
+        characterLabel.isHidden = true
+        gameStartButton.isHidden = true
         imageView.isUserInteractionEnabled = true
 
     }
     
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
    
     
+    
+    //로그인 버튼
     @IBAction func checkButton(_ sender: Any) {
          //아이디 넘기기
-        imageView.isHidden = false
         
+        idTextField.resignFirstResponder()
+        
+        
+        if idTextField.text!.isEmpty {
+            createAlert(title: "사용자 이름이 누락되었습니다", message: "")
+        } else {
+            imageView.isHidden = false
+            characterLabel.isHidden = false
+            gameStartButton.isHidden = false
+        }
     }
     
     @IBAction func chachaButton(_ sender: UIButton) {
@@ -76,12 +100,13 @@ view.backgroundColor = .white
     }
     
     
-    
-    
-    
-    
-    
-    
+    @IBAction func gameStartAction(_ sender: Any) {
+        
+        let mainVC = ViewController()
+        self.show(mainVC, sender: nil)
+        mainVC.userNameLabel.text = idTextField.text
+        
+    }
     
     
     
@@ -101,14 +126,14 @@ view.backgroundColor = .white
     }
     
     func makeView() {
-        collectionView.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 130).isActive = true
+        collectionView.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 190).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         collectionView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         
-        leftButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 150).isActive = true
+        leftButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 210).isActive = true
         leftButton.trailingAnchor.constraint(equalTo: collectionView.leadingAnchor,constant: -20).isActive = true
         leftButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -117,7 +142,7 @@ view.backgroundColor = .white
         leftButton.setTitleColor(.black, for: .normal)
         leftButton.tag = 0
         
-        rightButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 150).isActive = true
+        rightButton.topAnchor.constraint(equalTo: imageView.topAnchor,constant: 210).isActive = true
         rightButton.leadingAnchor.constraint(equalTo: collectionView.trailingAnchor,constant: 20).isActive = true
         rightButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         rightButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
