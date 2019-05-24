@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     let userNameLabel = UILabel()
     let infoButton = UIButton()
     
-    
+    let dore = ["도","레","미","파","솔","라","시"]
+    var labelArray :[UILabel] = []
     var buttonArray :[UIButton] = []
     var saveNum: [Int] = []
     
@@ -49,6 +50,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         makeView()
         infoVC.delegate = self
+       
     }
     
     
@@ -97,6 +99,7 @@ class ViewController: UIViewController {
                                     self.backgroundImageView.layoutIfNeeded()
         }) {_ in
             sender.isSelected = false
+
         }
     }
     
@@ -142,6 +145,7 @@ class ViewController: UIViewController {
         backgroundImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         backgroundImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
         backgroundImageView.isUserInteractionEnabled = true
         
         
@@ -232,10 +236,17 @@ class ViewController: UIViewController {
             button.setImage(UIImage(named: "sheep"), for: .normal)
             button.addTarget(self, action: #selector(act(_:)), for: .touchUpInside)
             button.isSelected = true
-            
+            let label = UILabel()
+            label.frame = CGRect(x: 40, y: 28, width: 40, height: 40)
+            label.text = dore[x]
+            label.tag = x
+            label.isHidden = true
+ ////////////////////////////////////
             backgroundImageView.addSubview(button)
+                 button.addSubview(label)
             //이미지 뷰위에서는 선택 안됨. 그래서 밑에 코드 써야 됨..!!!
             buttonArray.append(button)
+            labelArray.append(label)
         }
         
         
@@ -296,7 +307,7 @@ class ViewController: UIViewController {
             buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
             RunLoop.current.run(until: Date()+0.2)
         }
-        firstPerform()
+//        firstPerform()
     }
     
     @objc func startInfo() {
@@ -361,33 +372,15 @@ class ViewController: UIViewController {
     
     // 힌트 함수 ( 랜덤 번호 생성하는데, 이미 생성한 번호 있으면 다시 불러와서 겹치지 않게 함)
     func randomNum() {
+
         guard self.saveNum.count != 7 else { return self.fail() }
+        
         let random = Int.random(in: 0...6)
+        
         if !saveNum.contains(random) {
             saveNum.append(random)
-            switch random {
-            case 0:
-                buttonArray[random].setTitle("도", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            case 1:
-                buttonArray[random].setTitle("레", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            case 2:
-                buttonArray[random].setTitle("미", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            case 3:
-                buttonArray[random].setTitle("파", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            case 4:
-                buttonArray[random].setTitle("솔", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            case 5:
-                buttonArray[random].setTitle("라", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            default:
-                buttonArray[random].setTitle("시", for: .normal)
-                buttonArray[random].setTitleColor(.black, for: .normal)
-            }
+            labelArray[random].isHidden = false
+
         } else {
             randomNum()
         }
