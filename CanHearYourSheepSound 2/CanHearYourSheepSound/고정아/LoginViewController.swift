@@ -61,6 +61,7 @@ view.backgroundColor = .white
         collectionView.isScrollEnabled = false
         firstmake()
         makeView()
+        collectionView.backgroundColor = .white
 //여기까지---------------------
     }
     
