@@ -96,6 +96,8 @@
 			children = (
 				1FABF1E222977AD7009204BA /* AppDelegate.swift */,
 				1FABF1F622977C4F009204BA /* LoginViewController.swift */,
+				1FABF217229786F0009204BA /* CustomCollectionViewCell.swift */,
+				1FABF218229786F0009204BA /* CustomCollectionViewCell.xib */,
 				1FABF1F822977C63009204BA /* RankingViewController.swift */,
 				ABC5ACAD22977F68008B352D /* SingleTon.swift */,
 				1FABF1FB22977CFA009204BA /* CustomCell.swift */,
@@ -113,8 +115,6 @@
 				1FABF21F22978740009204BA /* dog.gif */,
 				1FABF1E422977AD7009204BA /* ViewController.swift */,
 				1FABF21322978690009204BA /* InforViewController.swift */,
-				1FABF217229786F0009204BA /* CustomCollectionViewCell.swift */,
-				1FABF218229786F0009204BA /* CustomCollectionViewCell.xib */,
 				1FABF215229786B5009204BA /* gif.swift */,
 			);
 			name = "전은석";
