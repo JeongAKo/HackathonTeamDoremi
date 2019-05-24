@@ -153,16 +153,17 @@ extension LoginViewController: UITextFieldDelegate {
          createAlert(title: "사용자 이름이 누락되었습니다", message: "")
         }
         
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let rankVC = storyBoard.instantiateViewController(withIdentifier: "RankingViewController")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let rankVC = storyBoard.instantiateViewController(withIdentifier: "RankingViewController")
         
 
-        let thirdVC = ThirdViewController()
+//        let thirdVC = ThirdViewController()
+        let rankingVC = RankingViewController()
 
-        self.show(thirdVC, sender: nil)
+        self.show(rankingVC, sender: nil)
 
   
-        thirdVC.userNameLabel.text = idTextField.text
+//        thirdVC.userNameLabel.text = idTextField.text
         
         
         return true

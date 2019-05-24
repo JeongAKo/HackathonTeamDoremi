@@ -17,9 +17,7 @@ class RankingViewController: UIViewController {
         super.viewDidLoad()
         
         createData()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+
         
     }
 
