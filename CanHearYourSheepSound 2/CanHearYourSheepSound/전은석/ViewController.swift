@@ -357,7 +357,7 @@ class ViewController: UIViewController {
             buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
             RunLoop.current.run(until: Date()+0.2)
         }
-//        firstPerform()
+        firstPerform()
     }
     
     @objc func startInfo() {
