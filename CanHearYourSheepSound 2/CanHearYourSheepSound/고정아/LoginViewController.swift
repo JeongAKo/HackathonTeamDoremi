@@ -17,7 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var characterLabel: UILabel!
+    @IBOutlet weak var abata: UIImageView!
+    
     @IBOutlet weak var gameStartButton: UIButton!
     
     
@@ -34,7 +35,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-view.backgroundColor = .white
+        view.backgroundColor = .white
         imageView.isUserInteractionEnabled = true
 
 //전은석 추가--------------------
@@ -51,7 +52,7 @@ view.backgroundColor = .white
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageView.isHidden = true
-        characterLabel.isHidden = true
+        abata.isHidden = true
         gameStartButton.isHidden = true
         imageView.isUserInteractionEnabled = true
 
@@ -70,7 +71,6 @@ view.backgroundColor = .white
     
     //로그인 버튼
     @IBAction func checkButton(_ sender: Any) {
-         //아이디 넘기기
         
         idTextField.resignFirstResponder()
         
@@ -79,7 +79,7 @@ view.backgroundColor = .white
             createAlert(title: "사용자 이름이 누락되었습니다", message: "")
         } else {
             imageView.isHidden = false
-            characterLabel.isHidden = false
+            abata.isHidden = false
             gameStartButton.isHidden = false
         }
     }
@@ -138,7 +138,7 @@ view.backgroundColor = .white
         leftButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         leftButton.addTarget(self, action: #selector(actButton(_:)), for: .touchUpInside)
-        leftButton.setTitle("왼쪽", for: .normal)
+        leftButton.setImage(UIImage(named: "Left"), for: .normal)
         leftButton.setTitleColor(.black, for: .normal)
         leftButton.tag = 0
         
@@ -147,7 +147,7 @@ view.backgroundColor = .white
         rightButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         rightButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         rightButton.addTarget(self, action: #selector(actButton(_:)), for: .touchUpInside)
-        rightButton.setTitle("오른쪽", for: .normal)
+        rightButton.setImage(UIImage(named: "Right"), for: .normal)
         rightButton.setTitleColor(.black, for: .normal)
         rightButton.tag = 1
         
