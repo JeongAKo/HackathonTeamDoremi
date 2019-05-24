@@ -51,7 +51,9 @@ class RankingViewController: UIViewController {
     
     @objc func didTapCloseButton(_ sender: UIButton){
         
-        let LoginVC = LoginViewController()
+        let view = UIStoryboard.init(name: "Main", bundle: nil)
+        let LoginVC = view.instantiateViewController(withIdentifier: "LoginViewController")
+
         show(LoginVC, sender: nil)
     }
     

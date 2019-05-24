@@ -22,6 +22,12 @@ class ViewController: UIViewController {
     let userNameLabel = UILabel()
     let infoButton = UIButton()
     
+    var printResult = 0
+    var recordArr: [Int] = []
+    var result: [Int] = []
+    var tempArray: [Int] = []
+    var reversedArray: [Int] = []
+    
     let dore = ["도","레","미","파","솔","라","시"]
     var labelArray :[UILabel] = []
     var buttonArray :[UIButton] = []
@@ -42,14 +48,20 @@ class ViewController: UIViewController {
     let personImage = ["person","man"]
     let loseImage = ["wolf","people"]
     let winImage = ["king","wolf"]
-    //
     
+    
+    // 데이터 저장 (싱글톤)
+    
+    func appendData() {
+        SingleSigle.shared.players.append(Player(name: userNameLabel.text!, point: printResult))
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeView()
         infoVC.delegate = self
+        makeRankNumber()
        
     }
     
@@ -137,6 +149,25 @@ class ViewController: UIViewController {
         
     }
     
+    func makeRankNumber() {
+        tempArray = SingleSigle.shared.players.map {$0.point}
+        
+        for str in tempArray {
+            if !result.contains(str) && !recordArr.contains(str) {
+                result.append(str)
+                print("result: \(result)")
+            } else if let index = result.firstIndex(of: str) {
+                result.remove(at: index)
+                result.append(str)
+            }
+            reversedArray = result.sorted().reversed()
+        }
+        
+        print("result: \(result)")
+        print("recordArr: \(recordArr)")
+        print("reversedArray: \(reversedArray)")
+    }
+    
     func makeView() {
         view.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -166,8 +197,8 @@ class ViewController: UIViewController {
         balloonImageView.image = UIImage(named: "ballon")
         balloonImageView.bottomAnchor.constraint(equalTo: personButton.topAnchor, constant: -5).isActive = true
         balloonImageView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
-        balloonImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        balloonImageView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        balloonImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        balloonImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         balloonImageView.isUserInteractionEnabled = true
         
         
@@ -175,8 +206,8 @@ class ViewController: UIViewController {
         balloonLabel.translatesAutoresizingMaskIntoConstraints = false
         balloonLabel.topAnchor.constraint(equalTo: balloonImageView.topAnchor, constant: 0).isActive = true
         balloonLabel.leadingAnchor.constraint(equalTo: balloonImageView.leadingAnchor,constant: 10).isActive = true
-        balloonLabel.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        balloonLabel.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        balloonLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        balloonLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         balloonLabel.text = ""
         balloonLabel.numberOfLines = 0
         
@@ -260,14 +291,33 @@ class ViewController: UIViewController {
     
     // 눌렀을때 맞는지 틀린지 구별해주는 함수 두개
     func success() {
+        
+        printResult = 10 - saveSingleton.subtractPoint
+        
+        
         let alertController = UIAlertController(
-            title: "성공입니다!!!", message: "점수 : \(10 - saveSingleton.count) 점" , preferredStyle: .alert)
+            title: "성공입니다!!!", message: "점수 : \(printResult) 점" , preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "다음게임", style: .default) {
+            
+            // FIXME: - 랭킹뷰 넘기기
             _ in
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let secondVC = storyBoard.instantiateViewController(withIdentifier: "SecondViewController")
-            self.show(secondVC, sender: true)
+            self.kingButton.isHidden = true
+            self.startButton.isHidden = true
+            self.infoButton.isHidden = true
+            self.wolfImageView.isHidden = true
+            self.personButton.isHidden = true
+            for x in 0...6 {
+                self.buttonArray[x].isHidden = true
+
+            }
+
+            
+            
+            let rankVC = RankingViewController()
+            
+            rankVC.modalPresentationStyle = .overCurrentContext
+            self.present(rankVC, animated: true)
             
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
@@ -342,12 +392,9 @@ class ViewController: UIViewController {
     func helperInforText() {
         balloonLabel.isHidden = false
         balloonImageView.isHidden = false
-        let str = "안녕하세요 저는 도우미입니다.저를 클릭하시면 'Hint'를 드릴꺼에요. [참고] 양이 도레미 버튼입니다."
-        for x in str {
-            balloonLabel.text! += "\(x)"
-            RunLoop.current.run(until: Date()+0.1)
-        }
-        
+        let str = "HINT"
+        balloonLabel.text = str
+    
     }
     
     //안내원 눌렀을 때 나오는 어럿
@@ -358,7 +405,8 @@ class ViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "힌트(점수 -1 감점)", style: .default) {
             _ in
-            // 점수 감점 하기위한 싱글톤 필요
+            
+            self.saveSingleton.subtractPoint += 1
             self.randomNum()
         }
         let cancelAction = UIAlertAction(title: "스스로 하기", style: .cancel)
