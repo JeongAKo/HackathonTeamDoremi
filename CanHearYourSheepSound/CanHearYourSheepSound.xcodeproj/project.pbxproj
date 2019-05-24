@@ -16,6 +16,14 @@
 		1FABF1F922977C63009204BA /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF1F822977C63009204BA /* RankingViewController.swift */; };
 		1FABF1FD22977CFA009204BA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF1FB22977CFA009204BA /* CustomCell.swift */; };
 		1FABF1FE22977CFA009204BA /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF1FC22977CFA009204BA /* CustomCell.xib */; };
+		1FABF20022977F44009204BA /* gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF1FF22977F44009204BA /* gif.swift */; };
+		1FABF20222977FB9009204BA /* InforViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF20122977FB9009204BA /* InforViewController.swift */; };
+		1FABF20522977FE4009204BA /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FABF20322977FE4009204BA /* CustomCollectionViewCell.swift */; };
+		1FABF20622977FE4009204BA /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF20422977FE4009204BA /* CustomCollectionViewCell.xib */; };
+		1FABF208229780AD009204BA /* cat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF207229780AD009204BA /* cat.gif */; };
+		1FABF20A229780B0009204BA /* bird.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF209229780B0009204BA /* bird.gif */; };
+		1FABF20C229780B4009204BA /* dog.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF20B229780B4009204BA /* dog.gif */; };
+		1FABF20E2297823E009204BA /* dore in Resources */ = {isa = PBXBuildFile; fileRef = 1FABF20D2297823E009204BA /* dore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +38,14 @@
 		1FABF1F822977C63009204BA /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		1FABF1FB22977CFA009204BA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		1FABF1FC22977CFA009204BA /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		1FABF1FF22977F44009204BA /* gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gif.swift; sourceTree = "<group>"; };
+		1FABF20122977FB9009204BA /* InforViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforViewController.swift; sourceTree = "<group>"; };
+		1FABF20322977FE4009204BA /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		1FABF20422977FE4009204BA /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		1FABF207229780AD009204BA /* cat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cat.gif; sourceTree = "<group>"; };
+		1FABF209229780B0009204BA /* bird.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bird.gif; sourceTree = "<group>"; };
+		1FABF20B229780B4009204BA /* dog.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dog.gif; sourceTree = "<group>"; };
+		1FABF20D2297823E009204BA /* dore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 		1FABF1E122977AD7009204BA /* CanHearYourSheepSound */ = {
 			isa = PBXGroup;
 			children = (
+				1FABF20D2297823E009204BA /* dore */,
 				1FABF1F522977AF2009204BA /* 전은석 */,
 				1FABF1F422977AEB009204BA /* 고정아 */,
 				1FABF1E622977AD7009204BA /* Main.storyboard */,
@@ -88,7 +105,14 @@
 		1FABF1F522977AF2009204BA /* 전은석 */ = {
 			isa = PBXGroup;
 			children = (
+				1FABF207229780AD009204BA /* cat.gif */,
+				1FABF209229780B0009204BA /* bird.gif */,
+				1FABF20B229780B4009204BA /* dog.gif */,
 				1FABF1E422977AD7009204BA /* ViewController.swift */,
+				1FABF20122977FB9009204BA /* InforViewController.swift */,
+				1FABF20322977FE4009204BA /* CustomCollectionViewCell.swift */,
+				1FABF20422977FE4009204BA /* CustomCollectionViewCell.xib */,
+				1FABF1FF22977F44009204BA /* gif.swift */,
 			);
 			name = "전은석";
 			path = "전은석";
@@ -154,7 +178,12 @@
 			files = (
 				1FABF1ED22977AD8009204BA /* LaunchScreen.storyboard in Resources */,
 				1FABF1EA22977AD8009204BA /* Assets.xcassets in Resources */,
+				1FABF20E2297823E009204BA /* dore in Resources */,
 				1FABF1FE22977CFA009204BA /* CustomCell.xib in Resources */,
+				1FABF20A229780B0009204BA /* bird.gif in Resources */,
+				1FABF208229780AD009204BA /* cat.gif in Resources */,
+				1FABF20C229780B4009204BA /* dog.gif in Resources */,
+				1FABF20622977FE4009204BA /* CustomCollectionViewCell.xib in Resources */,
 				1FABF1E822977AD7009204BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,8 +198,11 @@
 				1FABF1F722977C4F009204BA /* LoginViewController.swift in Sources */,
 				1FABF1E522977AD7009204BA /* ViewController.swift in Sources */,
 				1FABF1FD22977CFA009204BA /* CustomCell.swift in Sources */,
+				1FABF20522977FE4009204BA /* CustomCollectionViewCell.swift in Sources */,
 				1FABF1E322977AD7009204BA /* AppDelegate.swift in Sources */,
+				1FABF20022977F44009204BA /* gif.swift in Sources */,
 				1FABF1F922977C63009204BA /* RankingViewController.swift in Sources */,
+				1FABF20222977FB9009204BA /* InforViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
