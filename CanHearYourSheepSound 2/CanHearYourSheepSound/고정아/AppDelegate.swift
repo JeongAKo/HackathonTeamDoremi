@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = LoginViewController()
 //        window?.makeKeyAndVisible()
-//        
+//
+        Thread.sleep(until: Date(timeIntervalSinceNow: 2))
         return true
     }
 

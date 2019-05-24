@@ -22,6 +22,10 @@ class InforViewController: UIViewController {
     let whiteAlertActionButton = UIButton()
     let okAlertActionButton = UIButton()
     
+//    let yellowAlertActionButton1 = UIButton()
+//    let whiteAlertActionButton1 = UIButton()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -36,7 +40,7 @@ class InforViewController: UIViewController {
         baseView.layer.cornerRadius = 10
         view.addSubview(baseView)
         
-        titleLabel.text = "버튼 눌러서 이미지 변경"
+        titleLabel.text = "버튼 눌러서 이미지, 난이도 변경"
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 25)
         titleLabel.textColor = .black
@@ -55,6 +59,24 @@ class InforViewController: UIViewController {
         whiteAlertActionButton.addTarget(self, action: #selector(alertActionButtonAction), for: .touchUpInside)
         whiteAlertActionButton.tag = 1
         view.addSubview(whiteAlertActionButton)
+        
+        
+//        yellowAlertActionButton1.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//        yellowAlertActionButton1.layer.cornerRadius = 45
+//        yellowAlertActionButton1.setTitle("쉬움", for: .normal)
+//        yellowAlertActionButton1.addTarget(self, action: #selector(alertActionButtonAction), for: .touchUpInside)
+//        yellowAlertActionButton1.tag = 2
+//        view.addSubview(yellowAlertActionButton1)
+//        
+//        whiteAlertActionButton1.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//        whiteAlertActionButton1.layer.cornerRadius = 45
+//        whiteAlertActionButton1.setTitle("어려움", for: .normal)
+//        whiteAlertActionButton1.addTarget(self, action: #selector(alertActionButtonAction), for: .touchUpInside)
+//        whiteAlertActionButton1.tag = 3
+//        view.addSubview(whiteAlertActionButton1)
+        
+        
+        
         
         
         okAlertActionButton.layer.cornerRadius = 25
@@ -84,15 +106,33 @@ class InforViewController: UIViewController {
         
         yellowAlertActionButton.translatesAutoresizingMaskIntoConstraints = false
         yellowAlertActionButton.leadingAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.leadingAnchor, constant: Standard.space).isActive = true
-        yellowAlertActionButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        yellowAlertActionButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor,constant: -50).isActive = true
         yellowAlertActionButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         yellowAlertActionButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
         
         whiteAlertActionButton.translatesAutoresizingMaskIntoConstraints = false
         whiteAlertActionButton.trailingAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.trailingAnchor, constant: -Standard.space).isActive = true
-        whiteAlertActionButton.centerYAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        whiteAlertActionButton.centerYAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.centerYAnchor,constant: -50).isActive = true
         whiteAlertActionButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         whiteAlertActionButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        
+        
+//        yellowAlertActionButton1.translatesAutoresizingMaskIntoConstraints = false
+//        yellowAlertActionButton1.leadingAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.leadingAnchor, constant: Standard.space).isActive = true
+//        yellowAlertActionButton1.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor,constant: 60).isActive = true
+//        yellowAlertActionButton1.widthAnchor.constraint(equalToConstant: 90).isActive = true
+//        yellowAlertActionButton1.heightAnchor.constraint(equalToConstant: 90).isActive = true
+//
+//        whiteAlertActionButton1.translatesAutoresizingMaskIntoConstraints = false
+//        whiteAlertActionButton1.trailingAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.trailingAnchor, constant: -Standard.space).isActive = true
+//        whiteAlertActionButton1.centerYAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.centerYAnchor,constant: 60).isActive = true
+//        whiteAlertActionButton1.widthAnchor.constraint(equalToConstant: 90).isActive = true
+//        whiteAlertActionButton1.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        
+        
+        
         
         okAlertActionButton.translatesAutoresizingMaskIntoConstraints = false
         okAlertActionButton.bottomAnchor.constraint(equalTo: baseView.safeAreaLayoutGuide.bottomAnchor, constant: -Standard.space).isActive = true
@@ -104,7 +144,7 @@ class InforViewController: UIViewController {
     
     @objc private func alertActionButtonAction(_ sender: UIButton) {
         switch sender.tag {
-        case 0,1:
+        case 0,1,3,4:
             delegate?.changeImage(sender.tag)
         case 2:
             dismiss(animated: true)
