@@ -249,13 +249,13 @@ class ViewController: UIViewController {
         kingButton.setImage(UIImage(named: winImage[count]), for: .normal)
         kingButton.isHidden = true
         
-        infoButton.topAnchor.constraint(equalTo: backgroundImageView.topAnchor).isActive = true
-        infoButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor,constant: 10).isActive = true
+        infoButton.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor,constant: -20).isActive = true
+        infoButton.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor,constant: -20).isActive = true
         infoButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         infoButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         infoButton.layer.cornerRadius = 30
         infoButton.backgroundColor = .gray
-        infoButton.setTitle("info", for: .normal)
+        infoButton.setTitle("변경", for: .normal)
         infoButton.setTitleColor(.white, for: .normal)
         infoButton.addTarget(self, action: #selector(infoButtonAction), for: .touchUpInside)
         
@@ -272,7 +272,8 @@ class ViewController: UIViewController {
             label.text = dore[x]
             label.tag = x
             label.isHidden = true
- ////////////////////////////////////
+ //양들//////////////////////////////////
+            button.isEnabled = false
             backgroundImageView.addSubview(button)
                  button.addSubview(label)
             //이미지 뷰위에서는 선택 안됨. 그래서 밑에 코드 써야 됨..!!!
@@ -299,21 +300,21 @@ class ViewController: UIViewController {
             title: "성공입니다!!!", message: "점수 : \(printResult) 점" , preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "다음게임", style: .default) {
-            
             // FIXME: - 랭킹뷰 넘기기
             _ in
+            self.appendData()
+
             self.kingButton.isHidden = true
             self.startButton.isHidden = true
             self.infoButton.isHidden = true
             self.wolfImageView.isHidden = true
             self.personButton.isHidden = true
+            self.balloonLabel.isHidden = true
+            self.balloonImageView.isHidden = true
             for x in 0...6 {
                 self.buttonArray[x].isHidden = true
 
             }
-
-            
-            
             let rankVC = RankingViewController()
             
             rankVC.modalPresentationStyle = .overCurrentContext
@@ -357,17 +358,18 @@ class ViewController: UIViewController {
             buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
             RunLoop.current.run(until: Date()+0.2)
         }
-        firstPerform()
     }
     
     @objc func startInfo() {
         startButton.isEnabled = false
         // 도우미 대사 함수
         helperInforText()
-        
-        
-        // 늑대 이동하는 애니매이션
-        UIView.animate(withDuration: 60) {
+        for x in 0...6 {
+        buttonArray[x].isEnabled = true
+        }
+        firstPerform()
+// 늑대 이동하는 애니매이션
+        UIView.animate(withDuration: 30) {
             self.wolfImageView.trailingAnchor.constraint(equalTo: self.personButton.leadingAnchor,constant: 15).isActive = true
             self.wolfImageView.centerYAnchor.constraint(equalTo: self.personButton.centerYAnchor).isActive = true
             self.wolfImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
@@ -376,8 +378,33 @@ class ViewController: UIViewController {
             self.backgroundImageView.layoutIfNeeded()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+60, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+30, execute: {
             self.startButton.setImage(UIImage(named: "sun2"), for: .normal)
+ ///////////////////
+//////////////////////////
+////////////////////////////
+            
+            self.kingButton.isHidden = true
+            self.startButton.isHidden = true
+            self.infoButton.isHidden = true
+            self.wolfImageView.isHidden = true
+            self.personButton.isHidden = true
+            self.balloonLabel.isHidden = true
+            self.balloonImageView.isHidden = true
+            for x in 0...6 {
+                self.buttonArray[x].isHidden = true
+                
+            }
+            let rankVC = RankingViewController()
+            
+            rankVC.modalPresentationStyle = .overCurrentContext
+            self.present(rankVC, animated: true)
+            
+            
+            
+            
+            
+            
         })
         
         
@@ -415,6 +442,14 @@ class ViewController: UIViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
+    
+//고난도 양 이동
+    
+    
+    
+    
+    
+    
     
     
     

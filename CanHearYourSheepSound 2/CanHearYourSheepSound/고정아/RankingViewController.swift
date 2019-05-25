@@ -59,8 +59,8 @@ class RankingViewController: UIViewController {
     
     
     func matchingRankingNum() {
-        SingleSigle.shared.players.append(Player(name: "앵그리은석", point: 10))
-        print(SingleSigle.shared.players)
+//        SingleSigle.shared.players.append(Player(name: "앵그리은석", point: 10))
+//        print(SingleSigle.shared.players)
         let temp = SingleSigle.shared.players
         
         

@@ -22,9 +22,6 @@ class SingleSigle {
     static let shared = SingleSigle()
     private init() {}
     var players: [Player] = [
-        Player(name: "유업", point: 10),
-        Player(name: "유어비", point: 10),
-        Player(name: "정아", point: 29),
         Player(name: "은석", point: 50),
         Player(name: "도영", point: 40),
         Player(name: "진배", point: 20),
