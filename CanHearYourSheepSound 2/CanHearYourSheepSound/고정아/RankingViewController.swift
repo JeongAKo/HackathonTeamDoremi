@@ -104,6 +104,7 @@ class RankingViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: guide.topAnchor, constant: margin).isActive = true
         tableView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: margin).isActive = true
         tableView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -margin).isActive = true
+        tableView.centerYAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
     
         goToFirstPageButton.translatesAutoresizingMaskIntoConstraints = false
