@@ -50,21 +50,13 @@ class RankingViewController: UIViewController {
     //버튼 액션
     
     @objc func didTapCloseButton(_ sender: UIButton){
-        
-        let view = UIStoryboard.init(name: "Main", bundle: nil)
-        let LoginVC = view.instantiateViewController(withIdentifier: "LoginViewController")
+        presentingViewController?.presentingViewController?.dismiss(animated: true)
 
-        show(LoginVC, sender: nil)
     }
     
     
     func matchingRankingNum() {
-//        SingleSigle.shared.players.append(Player(name: "앵그리은석", point: 10))
-//        print(SingleSigle.shared.players)
-        let temp = SingleSigle.shared.players
-        
-        
-        print("temp:",temp)
+
         var result = [Int]()
         tempArray = SingleSigle.shared.players.map { $0.point }
         reversedArray = tempArray.sorted().reversed()
@@ -80,7 +72,7 @@ class RankingViewController: UIViewController {
             reversedArray = result.sorted().reversed()
         }
         
-        print("recordArr:", reversedArray)
+        print("recordArr:", recordArr)
         print("reversedArr:", reversedArray)
         var users = [Player]()
         SingleSigle.shared.players.forEach { (player) in

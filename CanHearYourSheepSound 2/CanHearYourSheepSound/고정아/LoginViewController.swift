@@ -17,10 +17,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var abata: UIImageView!
+    @IBOutlet weak var abatar: UIImageView!
     
     @IBOutlet weak var gameStartButton: UIButton!
     
+    var count = 0
     
     //유저 이미지 아이콘들.
     var collectionView: UICollectionView = {
@@ -52,9 +53,10 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageView.isHidden = true
-        abata.isHidden = true
+        abatar.isHidden = true
         gameStartButton.isHidden = true
         imageView.isUserInteractionEnabled = true
+        idTextField.text = ""
 
     }
     
@@ -79,7 +81,7 @@ class LoginViewController: UIViewController {
             createAlert(title: "사용자 이름이 누락되었습니다", message: "")
         } else {
             imageView.isHidden = false
-            abata.isHidden = false
+            abatar.isHidden = false
             gameStartButton.isHidden = false
         }
     }
@@ -103,9 +105,18 @@ class LoginViewController: UIViewController {
     @IBAction func gameStartAction(_ sender: Any) {
         
         let mainVC = ViewController()
-        self.show(mainVC, sender: nil)
         mainVC.userNameLabel.text = idTextField.text
         
+        if count % 3 == 0 {
+            mainVC.avatar = gif[0]
+        } else if count % 3 == 1 {
+            mainVC.avatar = self.gif[1]
+        } else {
+            mainVC.avatar = self.gif[2]
+        }
+        
+        self.show(mainVC, sender: nil)
+
     }
     
     
@@ -153,16 +164,25 @@ class LoginViewController: UIViewController {
         
     }
     @objc func actButton(_ sender: UIButton) {
+        leftButton.isEnabled = true
+        rightButton.isEnabled = true
         if sender.tag == 0 {
-            let move = CGPoint(x: collectionView
-                .contentOffset.x - collectionView.frame.width - 10, y: 0)
-            if collectionView.contentOffset.x == 0 {
-                collectionView.contentOffset.x = 220
+            
+            if count == 0 {
+                sender.isEnabled = false
             } else {
-                collectionView.contentOffset = move
+                 count -= 1
+                let move = CGPoint(x: collectionView
+                    .contentOffset.x - collectionView.frame.width - 10, y: 0)
+                if collectionView.contentOffset.x == 0 {
+                    collectionView.contentOffset.x = 220
+                } else {
+                    collectionView.contentOffset = move
+                }
             }
-            print(collectionView.contentOffset)
+
         } else if sender.tag == 1 {
+            count += 1
             let move = CGPoint(x: collectionView
                 .contentOffset.x + collectionView.frame.width + 10, y: 0)
             if collectionView.contentOffset.x == 220 {
@@ -170,9 +190,6 @@ class LoginViewController: UIViewController {
             } else {
                 collectionView.contentOffset = move
             }
-            print(collectionView.contentOffset)
-            
-            
         }
     }
 //여기까지---------------------
@@ -188,6 +205,7 @@ extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "check", for: indexPath) as! CustomCollectionViewCell
         cell.imageView.loadGif(name: gif[indexPath.row])
+        
         return cell
     }
     

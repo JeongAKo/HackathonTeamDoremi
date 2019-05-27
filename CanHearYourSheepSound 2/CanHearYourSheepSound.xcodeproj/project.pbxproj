@@ -80,6 +80,7 @@
 		1FABF1E122977AD7009204BA /* CanHearYourSheepSound */ = {
 			isa = PBXGroup;
 			children = (
+				1FABF227229BCFD6009204BA /* gif */,
 				1FABF2212297874C009204BA /* dore */,
 				1FABF1F522977AF2009204BA /* 전은석 */,
 				1FABF1F422977AEB009204BA /* 고정아 */,
@@ -110,15 +111,22 @@
 		1FABF1F522977AF2009204BA /* 전은석 */ = {
 			isa = PBXGroup;
 			children = (
-				1FABF21C2297873B009204BA /* bird.gif */,
-				1FABF21B2297873B009204BA /* cat.gif */,
-				1FABF21F22978740009204BA /* dog.gif */,
 				1FABF1E422977AD7009204BA /* ViewController.swift */,
 				1FABF21322978690009204BA /* InforViewController.swift */,
-				1FABF215229786B5009204BA /* gif.swift */,
 			);
 			name = "전은석";
 			path = "전은석";
+			sourceTree = "<group>";
+		};
+		1FABF227229BCFD6009204BA /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				1FABF215229786B5009204BA /* gif.swift */,
+				1FABF21C2297873B009204BA /* bird.gif */,
+				1FABF21B2297873B009204BA /* cat.gif */,
+				1FABF21F22978740009204BA /* dog.gif */,
+			);
+			path = gif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

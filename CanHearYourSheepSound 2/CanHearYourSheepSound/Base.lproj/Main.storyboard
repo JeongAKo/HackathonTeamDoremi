@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LoginView" translatesAutoresizingMaskIntoConstraints="NO" id="18p-1a-0pM">
-                                <rect key="frame" x="24" y="130" width="335" height="447"/>
+                                <rect key="frame" x="20" y="145" width="335" height="447"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oz-f4-b6f">
@@ -91,7 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="kqq-H0-Tud"/>
                     </view>
                     <connections>
-                        <outlet property="abata" destination="PYY-yr-0Dh" id="OcQ-qT-JGg"/>
+                        <outlet property="abatar" destination="PYY-yr-0Dh" id="OcQ-qT-JGg"/>
                         <outlet property="gameStartButton" destination="3Oz-f4-b6f" id="Caj-p2-bDW"/>
                         <outlet property="idTextField" destination="IMa-w5-FnD" id="Agb-xD-3ww"/>
                         <outlet property="imageView" destination="18p-1a-0pM" id="NGZ-zA-dbr"/>
@@ -112,6 +112,6 @@
         <image name="simple" width="785" height="916"/>
         <image name="게임시작" width="384" height="180"/>
         <image name="아바타" width="591" height="101"/>
-        <image name="확인" width="113" height="112"/>
+        <image name="확인" width="56.5" height="56"/>
     </resources>
 </document>

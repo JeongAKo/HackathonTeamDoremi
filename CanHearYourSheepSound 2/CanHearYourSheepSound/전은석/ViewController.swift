@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     var labelArray :[UILabel] = []
     var buttonArray :[UIButton] = []
     var saveNum: [Int] = []
+    var avatar = ""
+    let userAvatar = UIImageView()
     
     private var biggerWidthSize: NSLayoutConstraint!
     private var biggerHeightSize: NSLayoutConstraint!
@@ -180,7 +182,7 @@ class ViewController: UIViewController {
         backgroundImageView.isUserInteractionEnabled = true
         
         
-        let arr = [personButton,balloonImageView,wolfImageView,startButton,userNameLabel,infoButton]
+        let arr = [personButton,balloonImageView,wolfImageView,startButton,userNameLabel,infoButton,userAvatar]
         for x in arr {
             backgroundImageView.addSubview(x)
             x.translatesAutoresizingMaskIntoConstraints = false
@@ -237,10 +239,23 @@ class ViewController: UIViewController {
         startButton.addTarget(self, action: #selector(startInfo), for: .touchUpInside)
         startButton.setImage(UIImage(named: "sun1"), for: .normal)
         
+        
+        // 유저 네임과 유저 아바타~~~~~~
+    
+       
+        
         userNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         userNameLabel.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
-        userNameLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        userNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         userNameLabel.text = "유저네임 들어갈곳"
+        
+        userAvatar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        userAvatar.trailingAnchor.constraint(equalTo: userNameLabel.leadingAnchor).isActive = true
+        userAvatar.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        userAvatar.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        userAvatar.loadGif(name: avatar)
+        //~~~~~~~~~~~~~~~~
+        
         
         backgroundImageView.addSubview(kingButton)
         kingButton.frame = CGRect(x: view.frame.maxX - 40, y: backgroundImageView.frame.minY + 10, width: 20, height: 20)
@@ -368,8 +383,15 @@ class ViewController: UIViewController {
         buttonArray[x].isEnabled = true
         }
         firstPerform()
-// 늑대 이동하는 애니매이션
-        UIView.animate(withDuration: 30) {
+        
+        
+        createAlert(title: "난이도 조절", message: "선택해주세요.")
+
+    }
+    // 늑대 이동하는 애니매이션
+
+    func startAnimate() {
+        UIView.animate(withDuration: 35) {
             self.wolfImageView.trailingAnchor.constraint(equalTo: self.personButton.leadingAnchor,constant: 15).isActive = true
             self.wolfImageView.centerYAnchor.constraint(equalTo: self.personButton.centerYAnchor).isActive = true
             self.wolfImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
@@ -378,11 +400,11 @@ class ViewController: UIViewController {
             self.backgroundImageView.layoutIfNeeded()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+30, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+35, execute: {
             self.startButton.setImage(UIImage(named: "sun2"), for: .normal)
- ///////////////////
-//////////////////////////
-////////////////////////////
+            ///////////////////
+            //////////////////////////
+            ////////////////////////////
             
             self.kingButton.isHidden = true
             self.startButton.isHidden = true
@@ -400,19 +422,70 @@ class ViewController: UIViewController {
             rankVC.modalPresentationStyle = .overCurrentContext
             self.present(rankVC, animated: true)
             
-            
-            
-            
-            
-            
         })
-        
         
         //일단 말풍선 숨기고.
         balloonLabel.isHidden = true
         balloonImageView.isHidden = true
+    }
+    
+    
+    func createAlert(title: String, message: String) {
         
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let normalLevel = UIAlertAction(title: "NORMARL", style: .default) { _ in
+            self.startAnimate()
+        }
         
+        let hardLevel = UIAlertAction(title: "HARD", style: .default) { _ in
+            self.startAnimate()
+
+            
+            var pointers :[CGPoint] = [
+                CGPoint(x: self.view.frame.minX + 15,y: self.view.frame.maxY - 450),
+                CGPoint(x: self.view.frame.maxX - 95, y: self.view.frame.maxY - 450),
+                CGPoint(x: self.view.center.x - 120, y: self.view.frame.maxY - 390),
+                CGPoint(x: self.view.center.x + 40, y: self.view.frame.maxY - 390),
+                CGPoint(x: self.view.center.x - 40 , y: self.view.frame.maxY - 320),
+                CGPoint(x: self.view.center.x - 120, y: self.view.frame.maxY - 260),
+                CGPoint(x: self.view.center.x + 40, y: self.view.frame.maxY - 260)]
+            
+            
+            UIView.animateKeyframes(
+                withDuration: 30, delay: 0, options: [],
+                animations: {
+                    UIView.addKeyframe(
+                        withRelativeStartTime: 0, relativeDuration: 0.3,
+                        animations: {
+                            pointers.shuffle()
+                            for x in 0...6 {
+                                self.buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
+                            }
+                    })
+                    UIView.addKeyframe(
+                        withRelativeStartTime: 0.3, relativeDuration: 0.3,
+                        animations: {
+                            pointers.shuffle()
+                            for x in 0...6 {
+                                self.buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
+                            }
+                    })
+                    UIView.addKeyframe(
+                        withRelativeStartTime: 0.6, relativeDuration: 0.3,
+                        animations: {
+                            pointers.shuffle()
+                            for x in 0...6 {
+                                self.buttonArray[x].frame = CGRect(origin: pointers[x], size: CGSize(width: 80, height: 80))
+                            }
+                    })
+                    self.backgroundImageView.layoutIfNeeded()
+                    
+            })
+        }
+        
+        alert.addAction(normalLevel)
+        alert.addAction(hardLevel)
+        present(alert, animated: true, completion: nil)
     }
     
     // 안내원 처음 시작 대사
