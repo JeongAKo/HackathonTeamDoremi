@@ -2,7 +2,7 @@
 
 패스트 캠퍼스에서 진행한 1차 해커톤 진행 과정을 기록한 README 파일입니다.
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/51xDTDgCRwI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### 스쿨 해커톤 취지
 
