@@ -2,7 +2,12 @@
 
 패스트 캠퍼스에서 진행한 1차 해커톤 진행 과정을 기록한 README 파일입니다.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/51xDTDgCRwI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img width="200" alt="스크린샷 2019-09-05 오후 3 45 54" src="https://user-images.githubusercontent.com/47776915/64318164-641b6e80-cff4-11e9-96b7-ec47fdd3107b.png"> <img width="200" alt="스크린샷 2019-09-05 오후 3 46 04" src="https://user-images.githubusercontent.com/47776915/64318163-641b6e80-cff4-11e9-902e-b2807172ebc1.png"> 
+<img width="200" alt="스크린샷 2019-09-05 오후 3 46 25" src="https://user-images.githubusercontent.com/47776915/64318160-641b6e80-cff4-11e9-8174-5539e20b1a67.png"> <img width="200" alt="스크린샷 2019-09-05 오후 3 46 38" src="https://user-images.githubusercontent.com/47776915/64318158-6382d800-cff4-11e9-90cf-2e2ae0e4075d.png">
+
+#### [ 결과물 데모 영상 URL ](https://www.youtube.com/watch?v=51xDTDgCRwI#action=share)
+
+
 
 #### 스쿨 해커톤 취지
 
@@ -35,7 +40,7 @@ __조장 :__ 전은석 *(brianeunseokjeon)*
 
 __조원 :__ 고정아 *(JeongAKo)*
 
-__팀 역할 분배 :__ 고정아 - 데이터 담당/ 전은석 - 구현 담당
+__팀 역할 분배 :__ 전은석 - 애니메이션 구현 담당 / 고정아 - 데이터 담당
 
 
 
@@ -43,7 +48,7 @@ __팀 역할 분배 :__ 고정아 - 데이터 담당/ 전은석 - 구현 담당
 
 어떤 유투버가 음에 맞춰서 허공에 터치하는 듯한 영상을 보고 영감을 얻어 음에 맞춰서 터치하는 어플을 만들기로 함.
 
-기억력과 음감을 테스트 할수있는 유아를 위한 앱
+기억력과 음감을 테스트 할 수 있는 앱
 
 
 
@@ -106,13 +111,7 @@ gif 애니메이션 기능 구현
 
 고정아: 알고리즘적인 부분에 부족을 느낌.
 
-\- 전은석: 애니메이션이 될때가 있고 안될때가 있었음. 각 애니메이션에 맞는 메서드가 있음을 알게됨
-
-
-
-#### 결과물 데모 영상 URL
-
-https://www.youtube.com/watch?v=51xDTDgCRwI#action=share
+전은석: 애니메이션이 될때가 있고 안될때가 있었음. 각 애니메이션에 맞는 메서드가 있음을 알게됨
 
 
 
